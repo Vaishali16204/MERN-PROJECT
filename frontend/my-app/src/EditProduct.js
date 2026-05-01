@@ -13,7 +13,7 @@ function EditProduct() {
   });
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products/${id}`)
+    fetch(`${process.env.REACT_APP_API_URL}/products/${id}`)
       .then(res => res.json())
       .then(data => setProduct(data));
   }, [id]);
@@ -27,7 +27,7 @@ function EditProduct() {
 
   const updateProduct = async (e) => {
     e.preventDefault();
-    await fetch(`http://localhost:5000/products/${id}`, {
+    await fetch(`${process.env.REACT_APP_API_URL}/products/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"

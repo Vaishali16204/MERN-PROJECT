@@ -20,7 +20,7 @@ function Checkout() {
       return;
     }
     if (form.payment === "COD") {
-      await fetch("http://localhost:5000/save-order", {
+      await fetch("${process.env.REACT_APP_API_URL}/save-order", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({cart,total,gst,cgst,sgst,finalTotal,totalQty,user: form,paymentMethod: "COD",}),
@@ -31,7 +31,7 @@ function Checkout() {
       return;
     }
   console.log("Sending amount:", finalTotal);
-  const res = await fetch("http://localhost:5000/create-razorpay-order",
+  const res = await fetch("${process.env.REACT_APP_API_URL}/create-razorpay-order",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -48,7 +48,7 @@ function Checkout() {
    prefill: {name: form.name,email: form.email,contact: form.phone,},
    theme: { color: "#d83dd8" },
    handler: async function (response) {
-        await fetch("http://localhost:5000/save-order", {
+        await fetch("${process.env.REACT_APP_API_URL}/save-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({cart,total,gst,cgst,sgst,finalTotal,totalQty,user: form,paymentMethod: "UPI",paymentId: response.razorpay_payment_id, }),

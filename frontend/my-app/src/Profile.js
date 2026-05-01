@@ -9,7 +9,7 @@ function Profile() {
   const handleLogout = async () => {
     try {
       if (user && user._id) {
-        await fetch("http://localhost:5000/logout/" + user._id, {
+        await fetch(`${process.env.REACT_APP_API_URL}/logout/${user._id}`, {
           method: "PUT",
         });
       }
@@ -22,7 +22,7 @@ function Profile() {
   };
 
   useEffect(() => {if (!user) {navigate("/login");return;}
-    fetch("http://localhost:5000/users")
+    fetch(`${process.env.REACT_APP_API_URL}/users`)
       .then((res) => res.json())
       .then((users) => {
         const currentUser = users.find((u) => u._id === user._id);
@@ -39,7 +39,7 @@ function Profile() {
         }
       })
       .catch((err) => console.log("User fetch error:", err));
-    fetch("http://localhost:5000/orders")
+    fetch(`${process.env.REACT_APP_API_URL}/orders`)
       .then((res) => res.json())
       .then((data) => {
         const userOrders = data.filter(

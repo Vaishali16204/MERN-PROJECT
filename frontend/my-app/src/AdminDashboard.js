@@ -10,15 +10,15 @@ function AdminDashboard() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/orders")
+    fetch(`${process.env.REACT_APP_API_URL}/orders`)
       .then((res) => res.json())
       .then((data) => setOrders(data || []));
 
-    fetch("http://localhost:5000/users")
+    fetch(`${process.env.REACT_APP_API_URL}/users`)
       .then((res) => res.json())
       .then((data) => setUsers(data || []));
 
-    fetch("http://localhost:5000/products")
+    fetch(`${process.env.REACT_APP_API_URL}/products`)
       .then((res) => res.json())
       .then((data) => setProducts(data || []));
   }, []);

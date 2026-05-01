@@ -7,7 +7,7 @@ function Payment() {
   const totalQty = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
   const total = cart.reduce((sum, item) => sum + item.price * (item.qty || 1), 0);
   const placeOrder = async () => {
-    await fetch("http://localhost:5000/create-order", {
+    await fetch("${process.env.REACT_APP_API_URL}/create-order", {
       method: "POST",
       headers: {"Content-Type": "application/json" },
       body: JSON.stringify({ cart, total, totalQty })

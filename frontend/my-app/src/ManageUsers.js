@@ -4,11 +4,9 @@ import "./ManageUsers.css";
 function ManageUsers() {
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState("");
-
-  // Fetch all users
   const fetchUsers = async () => {
     try {
-      const res = await fetch("http://localhost:5000/users");
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/users`);
       const data = await res.json();
       setUsers(data);
     } catch (err) {
@@ -20,7 +18,7 @@ function ManageUsers() {
     fetchUsers();
   }, []);
 
-  // Auto refresh every 10 sec for live status updates
+
   useEffect(() => {
     const interval = setInterval(() => {
       fetchUsers();
@@ -29,15 +27,14 @@ function ManageUsers() {
     return () => clearInterval(interval);
   }, []);
 
-  // Search filter
   const filteredUsers = users.filter((user) =>
     user.email?.toLowerCase().includes(search.toLowerCase())
   );
 
-  // Delete user
+  
   const handleDelete = async (id) => {
     try {
-      await fetch(`http://localhost:5000/users/${id}`, {
+      await fetch(`${process.env.REACT_APP_API_URL}/users/${id}`, {
         method: "DELETE",
       });
 
@@ -47,10 +44,10 @@ function ManageUsers() {
     }
   };
 
-  // Block / Unblock user
+  
   const handleBlock = async (id) => {
     try {
-      await fetch(`http://localhost:5000/users/block/${id}`, {
+      await fetch(`${process.env.REACT_APP_API_URL}/users/block/${id}`, {
         method: "PUT",
       });
 

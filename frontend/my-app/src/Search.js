@@ -8,7 +8,7 @@ function Search() {
   const location = useLocation();
   const query = new URLSearchParams(location.search).get("q");
    useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch(`${process.env.REACT_APP_API_URL}/products`)
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

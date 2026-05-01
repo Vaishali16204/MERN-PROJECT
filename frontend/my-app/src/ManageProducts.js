@@ -7,13 +7,13 @@ function ManageProducts() {
 
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch(`${process.env.REACT_APP_API_URL}/products`)
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
 
   const deleteProduct = async (id) => {
-    await fetch(`http://localhost:5000/products/${id}`, { 
+    await fetch(`${process.env.REACT_APP_API_URL}/products/${id}`, { 
       method: "DELETE",
     });
 

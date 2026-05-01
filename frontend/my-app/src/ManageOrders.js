@@ -4,13 +4,13 @@ import "./ManageOrders.css";
 function ManageOrders() {
   const [orders, setOrders] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/orders")
+    fetch(`${process.env.REACT_APP_API_URL}/orders`)
       .then((res) => res.json())
       .then((data) => setOrders(data))
       .catch((err) => console.log("Error fetching orders:", err));
   }, []);
  const updateStatus = async (id) => {
-  await fetch(`http://localhost:5000/orders/${id}`, {
+  await fetch(`${process.env.REACT_APP_API_URL}/orders/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json"
