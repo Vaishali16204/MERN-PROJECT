@@ -1,0 +1,56 @@
+.manage-users {
+  padding: 20px;
+}
+
+.search-box {
+  padding: 10px;
+  width: 250px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: linear-gradient(to right, #7b2cbf, #9d4edd);
+  color: white;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.active {
+  color: green;
+  font-weight: bold;
+}
+
+.blocked {
+  color: red;
+  font-weight: bold;
+}
+
+.block-btn {
+  background: orange;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-right: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background: crimson;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}

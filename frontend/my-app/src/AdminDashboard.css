@@ -1,0 +1,147 @@
+
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #f5f3ff;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(to right, #f8f5ff, #ffffff);
+}
+
+
+.sidebar {
+  width: 240px;
+  background: linear-gradient(180deg, #5a189a, #7b2cbf);
+  color: white;
+  padding: 25px 20px;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.15);
+}
+.sidebar h2 {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+.sidebar button {
+  display: block;
+  width: 100%;
+  margin: 12px 0;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.sidebar button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateX(5px);
+}
+
+
+.main {
+  flex: 1;
+  padding: 30px;
+}
+.main h1 {
+  font-size: 54px;
+  color: #240046;
+  margin-bottom: 25px;
+}
+
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-bottom: 35px;
+}
+.card {
+  padding: 28px;
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 10px 25px rgba(123, 44, 191, 0.18);
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s;
+}
+.card:hover {
+  transform: translateY(-8px);
+}
+.card h3 {
+  margin: 0;
+  font-size: 22px;
+}
+.card p {
+  font-size: 34px;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+
+.card.orders {
+  background: linear-gradient(135deg, #4361ee, #7b2cbf);
+}
+.card.revenue {
+  background: linear-gradient(135deg, #00b4d8, #48cae4);
+}
+.card.users {
+  background: linear-gradient(135deg, #f72585, #ff758f);
+}
+.card.products {
+  background: linear-gradient(135deg, #43aa8b, #90be6d);
+}
+
+
+.charts {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+  margin-bottom: 35px;
+}
+.chart-box {
+  background: white;
+  padding: 25px;
+  border-radius: 22px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+.chart-box h3 {
+  color: #240046;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+.stat-box {
+  padding: 30px;
+  border-radius: 18px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+.stat-box h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.stat-box p {
+  font-size: 30px;
+  font-weight: bold;
+}
+.stat1 {
+  background: linear-gradient(135deg, #7b2cbf, #9d4edd);
+}
+.stat2 {
+  background: linear-gradient(135deg, #f3722c, #f9844a);
+}
+.stat3 {
+  background: linear-gradient(135deg, #277da1, #4cc9f0);
+}

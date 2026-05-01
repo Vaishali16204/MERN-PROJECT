@@ -1,0 +1,41 @@
+.manage-container{
+width:90%;
+margin:auto;
+margin-top:40px;
+}
+
+.product-table{
+width:100%;
+border-collapse:collapse;
+}
+
+.product-table th,
+.product-table td{
+border:1px solid #ddd;
+padding:10px;
+text-align:center;
+}
+
+.product-table th{
+background:#7b2cbf;
+color:white;
+}
+
+.edit-btn{
+background:#3a86ff;
+color:white;
+border:none;
+padding:6px 10px;
+margin-right:5px;
+cursor:pointer;
+border-radius:4px;
+}
+
+.delete-btn{
+background:#ff006e;
+color:white;
+border:none;
+padding:6px 10px;
+cursor:pointer;
+border-radius:4px;
+}

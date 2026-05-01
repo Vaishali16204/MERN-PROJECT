@@ -1,0 +1,32 @@
+import React, { useEffect, useState } from "react";
+import "./ProductCarousel.css";
+import { useNavigate } from "react-router-dom";
+
+function ProductCarousel() {
+  const navigate = useNavigate();
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/products")
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
+  }, []);
+
+  return (
+    <div className="carousel-wrapper">
+      <div className="product-track">
+        {products.map((product) => (
+          <div key={product._id} className="product-card"  onClick={() => navigate("/product/" + product._id)}>
+          <img src={`http://localhost:5000/uploads/${product.image}`}alt={product.name}/>
+          <h3>{product.name}</h3>
+            <p className="desc">{product.description}</p>
+            <p className="price">₹{product.price}</p>
+            <p className="category">{product.category}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default ProductCarousel;
