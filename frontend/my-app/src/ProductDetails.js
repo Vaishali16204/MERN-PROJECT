@@ -12,7 +12,7 @@ function ProductDetails() {
   alert("Added to cart");
 };
   useEffect(() => {
-    fetch("${process.env.REACT_APP_API_URL}/products/${id}")
+    fetch(`${process.env.REACT_APP_API_URL}/products/${id}`)
       .then(res => res.json())
       .then(data => setProduct(data));
   }, [id]);
