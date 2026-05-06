@@ -11,9 +11,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/uploads", express.static("uploads"));
-const app = express();
 require("dotenv").config();
-require("dotenv").config();
+
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
