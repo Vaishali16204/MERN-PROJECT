@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./HeroCarousel.css";
 
 import slide1 from "./images/hero1.jpg";
@@ -11,6 +12,7 @@ const slides = [slide1, slide2, slide3, slide4, slide5];
 
 function HeroCarousel() {
   const [current, setCurrent] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -34,6 +36,14 @@ function HeroCarousel() {
     );
   };
 
+  const goToSlide = (index) => {
+    setCurrent(index);
+  };
+
+  const handleShopNow = () => {
+    navigate("/search");
+  };
+
   return (
     <div className="hero-carousel">
       <div
@@ -42,12 +52,12 @@ function HeroCarousel() {
       >
         {slides.map((img, index) => (
           <div key={index} className="hero-slide">
-            <img src={img} alt="hero" className="hero-img" />
+            <img src={img} alt={`hero-${index}`} className="hero-img" />
 
             <div className="hero-content">
               <h1>Special Offer</h1>
               <p>Shop your favourites now</p>
-              <button>Shop Now</button>
+              <button onClick={handleShopNow}>Shop Now</button>
             </div>
           </div>
         ))}
@@ -60,6 +70,16 @@ function HeroCarousel() {
       <button className="hero-arrow right" onClick={nextSlide}>
         ❯
       </button>
+
+      <div className="hero-dots">
+        {slides.map((_, index) => (
+          <span
+            key={index}
+            className={`hero-dot ${current === index ? "active" : ""}`}
+            onClick={() => goToSlide(index)}
+          ></span>
+        ))}
+      </div>
     </div>
   );
 }

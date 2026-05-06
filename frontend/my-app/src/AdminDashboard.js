@@ -12,19 +12,19 @@ function AdminDashboard() {
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_URL}/orders`)
       .then((res) => res.json())
-      .then((data) => setOrders(data || []));
+      .then((data) => setOrders(Array.isArray(data) ? data : []));
 
     fetch(`${process.env.REACT_APP_API_URL}/users`)
       .then((res) => res.json())
-      .then((data) => setUsers(data || []));
+      .then((data) => setUsers(Array.isArray(data) ? data : []));
 
     fetch(`${process.env.REACT_APP_API_URL}/products`)
       .then((res) => res.json())
-      .then((data) => setProducts(data || []));
+      .then((data) => setProducts(Array.isArray(data) ? data : []));
   }, []);
 
-  const totalOrders = orders.length;
-  const totalRevenue = orders.reduce( (sum, order) => sum + Number(order.total || 0), 0 );
+  const totalOrders = Array.isArray(orders) ? orders.length : 0;
+  const totalRevenue = Array.isArray(orders)? orders.reduce((sum, order) => sum + Number(order.total || 0), 0) : 0;
   const ordersData = [];
   const revenueData = [];
 

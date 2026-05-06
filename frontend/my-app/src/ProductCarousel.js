@@ -6,11 +6,12 @@ function ProductCarousel() {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/products`)
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
+   useEffect(() => {
+      fetch(`${process.env.REACT_APP_API_URL}/products`)
+        .then((res) => res.json())
+        .then((data) => setProducts(Array.isArray(data) ? data : []))
+        .catch((err) => console.log("Error fetching products:", err));
+    }, []);
 
   return (
     <div className="carousel-wrapper">
